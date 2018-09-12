@@ -138,7 +138,7 @@ RUN set -ex \
 		libxml2-dev \
 		zlib1g-dev \
 		libxslt1-dev \
-	&& apt-get purge -y --auto-remove
+	&& apt-get purge -y --auto-remove \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
