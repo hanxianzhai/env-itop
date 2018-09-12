@@ -116,6 +116,7 @@ RUN set -ex \
 		libkrb5-dev \
 		libc-client2007e-dev \
 		libxslt1-dev \
+		supervisor \
 	&&docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
 	&&docker-php-ext-install \
 		gd \
@@ -137,13 +138,13 @@ RUN set -ex \
 		libxml2-dev \
 		zlib1g-dev \
 		libxslt1-dev \
-	&&rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
 
 
 RUN set -ex \
 	&& apt-get update \
-	&& apt-get upgrade \
+	&& apt-get upgrade  --no-install-recommends --no-install-suggests -y \
 	&& apt-get install --no-install-recommends --no-install-suggests -y supervisor \
 	&& apt-get purge -y --auto-remove
 
