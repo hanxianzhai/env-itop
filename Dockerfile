@@ -138,15 +138,8 @@ RUN set -ex \
 		libxml2-dev \
 		zlib1g-dev \
 		libxslt1-dev \
-	&& rm -rf /var/lib/apt/lists/*
-
-
-
-RUN set -ex \
-	&& apt-get update \
-	&& apt-get upgrade  --no-install-recommends --no-install-suggests -y \
-	&& apt-get install --no-install-recommends --no-install-suggests -y supervisor \
 	&& apt-get purge -y --auto-remove
+	&& rm -rf /var/lib/apt/lists/*
 
 RUN set -ex \
 	&& cd /usr/local/etc \
